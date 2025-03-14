@@ -1,0 +1,20 @@
+# VuePress 生成的临时文件
+docs/.vuepress/.temp/
+docs/.vuepress/.cache/
+
+# VuePress 生成的静态站点
+docs/.vuepress/dist/
+
+# 依赖文件
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# 编辑器相关文件
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
