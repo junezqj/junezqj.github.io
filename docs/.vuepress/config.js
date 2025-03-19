@@ -2,7 +2,23 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { viteBundler } from '@vuepress/bundler-vite'
 
 export default {
-    theme: defaultTheme(),
+    theme: defaultTheme({
+        sidebar: [
+            {
+                text: '首页',
+                link: '/',
+            },
+            {
+                text: 'GIT',
+                children: [
+                    {
+                        text: '基本命令',
+                        link: '/git/command',
+                    },
+                ],
+            },
+        ],
+    }),
     bundler: viteBundler(),
     lang: 'zh-CN',
     title: "Bala bala's website",
