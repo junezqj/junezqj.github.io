@@ -1,43 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="VuePress 2.0.0-rc.20" />
-    <style>
-      :root {
-        --vp-c-bg: #fff;
-      }
-
-      [data-theme='dark'] {
-        --vp-c-bg: #1b1b1f;
-      }
-
-      html,
-      body {
-        background-color: var(--vp-c-bg);
-      }
-    </style>
-    <script>
-      const useChoice = localStorage.getItem('vuepress-color-scheme')
-      const systemStatus =
-        'matchMedia' in window
-          ? window.matchMedia('(prefers-color-scheme: dark)').matches
-          : false
-
-      if (useChoice === 'light') {
-        document.documentElement.dataset.theme = 'light'
-      } else if (useChoice === 'dark' || systemStatus) {
-        document.documentElement.dataset.theme = 'dark'
-      }
-    </script>
-    <title>Git 常用基本命令 | Bala bala's website</title><meta name="description" content="这是我的一个技术分享&个人博客网站">
-    <link rel="preload" href="/assets/style-CQp7YV5d.css" as="style"><link rel="stylesheet" href="/assets/style-CQp7YV5d.css">
-    <link rel="modulepreload" href="/assets/app-BL_EWje8.js"><link rel="modulepreload" href="/assets/command.html-BpW8CeWG.js">
-    <link rel="prefetch" href="/assets/index.html-B0S86w89.js" as="script"><link rel="prefetch" href="/assets/index.html-Bbtj4Me0.js" as="script"><link rel="prefetch" href="/assets/404.html-DylOF4zG.js" as="script"><link rel="prefetch" href="/assets/setupDevtools-QXEOFQJV-OZFOudZq.js" as="script">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">Bala bala&#39;s website</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/" aria-label="首页"><!--[--><!--[--><!--]--><!--]-->首页<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading active">GIT <!----></p><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link route-link-active auto-link vp-sidebar-item active" href="/git/command.html" aria-label="基本命令"><!--[--><!--[--><!--]--><!--]-->基本命令<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div><h1 id="git-常用命令手册" tabindex="-1"><a class="header-anchor" href="#git-常用命令手册"><span>Git 常用命令手册</span></a></h1><h2 id="基础配置" tabindex="-1"><a class="header-anchor" href="#基础配置"><span>基础配置</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code><span class="line"><span class="token comment"># 设置全局用户名</span></span>
+import{_ as n,e as a,g as e,o as l}from"./app-BL_EWje8.js";const i={};function p(t,s){return l(),a("div",null,s[0]||(s[0]=[e(`<h1 id="git-常用命令手册" tabindex="-1"><a class="header-anchor" href="#git-常用命令手册"><span>Git 常用命令手册</span></a></h1><h2 id="基础配置" tabindex="-1"><a class="header-anchor" href="#基础配置"><span>基础配置</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code><span class="line"><span class="token comment"># 设置全局用户名</span></span>
 <span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">&quot;Your Name&quot;</span></span>
 <span class="line"></span>
 <span class="line"><span class="token comment"># 设置全局邮箱</span></span>
@@ -118,7 +79,4 @@
 <span class="line"><span class="token comment"># 子模块与调试</span></span>
 <span class="line"><span class="token function">git</span> submodule <span class="token function">add</span> https://github.com/user/repo  <span class="token comment"># 添加子模块</span></span>
 <span class="line"><span class="token function">git</span> bisect start                                <span class="token comment"># 二分法调试</span></span>
-<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">Last Updated: </span><!----></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: junezqj@gmail.com">junezqj</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
-    <script type="module" src="/assets/app-BL_EWje8.js" defer></script>
-  </body>
-</html>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,15)]))}const o=n(i,[["render",p],["__file","command.html.vue"]]),r=JSON.parse('{"path":"/git/command.html","title":"Git 常用基本命令","lang":"zh-CN","frontmatter":{"title":"Git 常用基本命令","date":"2025-03-19T00:00:00.000Z"},"headers":[{"level":2,"title":"基础配置","slug":"基础配置","link":"#基础配置","children":[]},{"level":2,"title":"仓库操作","slug":"仓库操作","link":"#仓库操作","children":[]},{"level":2,"title":"基础工作流","slug":"基础工作流","link":"#基础工作流","children":[]},{"level":2,"title":"分支管理","slug":"分支管理","link":"#分支管理","children":[]},{"level":2,"title":"远程协作","slug":"远程协作","link":"#远程协作","children":[]},{"level":2,"title":"撤销与恢复","slug":"撤销与恢复","link":"#撤销与恢复","children":[]},{"level":2,"title":"高级操作","slug":"高级操作","link":"#高级操作","children":[]}],"git":{"updatedTime":1742379895000,"contributors":[{"name":"junezqj","username":"junezqj","email":"junezqj@gmail.com","commits":2,"url":"https://github.com/junezqj"}],"changelog":[{"hash":"679d3a459973d8d681741d7b1af255ad37ffbaab","time":1742379895000,"email":"junezqj@gmail.com","author":"junezqj","message":"feat: 完善git基本命令"},{"hash":"3315461c663f437745cf19b7ed776f9998f2482c","time":1742378805000,"email":"junezqj@gmail.com","author":"junezqj","message":"feat: 添加git基本命令"}]},"filePathRelative":"git/command.md"}');export{o as comp,r as data};
