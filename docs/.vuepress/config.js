@@ -21,7 +21,7 @@ export default {
                 text: 'CSS 样式',
                 children: [
                     {
-                        text: 'sass & less',
+                        text: 'sass & less & stylus',
                         link: '/css/sass',
                     },
                 ],
