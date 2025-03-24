@@ -9,11 +9,20 @@ export default {
                 link: '/',
             },
             {
-                text: 'GIT',
+                text: 'GIT 版本控制',
                 children: [
                     {
                         text: '基本命令',
                         link: '/git/command',
+                    },
+                ],
+            },
+            {
+                text: 'CSS 样式',
+                children: [
+                    {
+                        text: 'sass & less',
+                        link: '/css/sass',
                     },
                 ],
             },
