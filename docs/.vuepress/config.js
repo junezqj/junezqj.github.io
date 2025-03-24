@@ -26,6 +26,15 @@ export default {
                     },
                 ],
             },
+            {
+                text: 'JavaScript 语法',
+                children: [
+                    {
+                        text: '闭包',
+                        link: '/js/closure',
+                    },
+                ],
+            },
         ],
     }),
     bundler: viteBundler(),
