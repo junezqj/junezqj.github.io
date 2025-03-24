@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.20" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>CSS 预处理器：Sass vs Less vs Stylus | Bala bala's website</title><meta name="description" content="这是我的一个技术分享&个人博客网站">
+    <link rel="preload" href="/assets/style-CQp7YV5d.css" as="style"><link rel="stylesheet" href="/assets/style-CQp7YV5d.css">
+    <link rel="modulepreload" href="/assets/app-nxCCozoQ.js"><link rel="modulepreload" href="/assets/sass.html-CE5OM5vE.js">
+    <link rel="prefetch" href="/assets/index.html-jgP2QlPa.js" as="script"><link rel="prefetch" href="/assets/command.html-BAjFTl2h.js" as="script"><link rel="prefetch" href="/assets/404.html-BDRiLPFj.js" as="script"><link rel="prefetch" href="/assets/setupDevtools-QXEOFQJV-kQWUK9PW.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">Bala bala&#39;s website</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/" aria-label="首页"><!--[--><!--[--><!--]--><!--]-->首页<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading">GIT 版本控制 <!----></p><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/git/command.html" aria-label="基本命令"><!--[--><!--[--><!--]--><!--]-->基本命令<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading active">CSS 样式 <!----></p><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link route-link-active auto-link vp-sidebar-item active" href="/css/sass.html" aria-label="sass &amp; less"><!--[--><!--[--><!--]--><!--]-->sass &amp; less<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div><h1 id="css-预处理器-sass-vs-less-vs-stylus" tabindex="-1"><a class="header-anchor" href="#css-预处理器-sass-vs-less-vs-stylus"><span>CSS 预处理器：Sass vs Less vs Stylus</span></a></h1><h2 id="一、什么是-css-预处理器" tabindex="-1"><a class="header-anchor" href="#一、什么是-css-预处理器"><span>一、什么是 CSS 预处理器？</span></a></h2><p>CSS 预处理器是一种在 CSS 基础上扩展的语言，提供了变量、嵌套、混合、函数、继承等功能，使 CSS 的编写更高效和模块化。常见的 CSS 预处理器包括：</p><ul><li><strong>Sass (Syntactically Awesome Stylesheets)</strong></li><li><strong>Less (Leaner Style Sheets)</strong></li><li><strong>Stylus</strong></li></ul><h2 id="二、sass-介绍与示例" tabindex="-1"><a class="header-anchor" href="#二、sass-介绍与示例"><span>二、Sass 介绍与示例</span></a></h2><h3 id="_1-变量-variables" tabindex="-1"><a class="header-anchor" href="#_1-变量-variables"><span><strong>1. 变量（Variables）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token property"><span class="token variable">$primary-color</span></span><span class="token punctuation">:</span> #007bff<span class="token punctuation">;</span></span>
+<span class="line"><span class="token property"><span class="token variable">$font-size</span></span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">body </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$primary-color</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font-size</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-嵌套规则-nesting-rules" tabindex="-1"><a class="header-anchor" href="#_2-嵌套规则-nesting-rules"><span><strong>2. 嵌套规则（Nesting Rules）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token selector">nav </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token selector">ul </span><span class="token punctuation">{</span></span>
+<span class="line">    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token selector">a </span><span class="token punctuation">{</span></span>
+<span class="line">    <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span></span>
+<span class="line">      <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-混合-mixins" tabindex="-1"><a class="header-anchor" href="#_3-混合-mixins"><span><strong>3. 混合（Mixins）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token keyword">@mixin</span> <span class="token function">border-radius</span><span class="token punctuation">(</span><span class="token variable">$radius</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$radius</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">@include</span> <span class="token function">border-radius</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-函数-functions" tabindex="-1"><a class="header-anchor" href="#_4-函数-functions"><span><strong>4. 函数（Functions）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token keyword">@function</span> <span class="token function">double</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">@return</span> <span class="token variable">$value</span> <span class="token operator">*</span> 2<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">double</span><span class="token punctuation">(</span>50px<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-扩展-继承-extend-inheritance" tabindex="-1"><a class="header-anchor" href="#_5-扩展-继承-extend-inheritance"><span><strong>5. 扩展/继承（Extend/Inheritance）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token selector"><span class="token placeholder">%button-base</span> </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">padding</span><span class="token punctuation">:</span> 10px 20px<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-primary </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">@extend</span> <span class="token placeholder selector">%button-base</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-secondary </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token keyword">@extend</span> <span class="token placeholder selector">%button-base</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">background-color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_6-导入路径-import-paths" tabindex="-1"><a class="header-anchor" href="#_6-导入路径-import-paths"><span><strong>6. 导入路径（Import Paths）</strong></span></a></h3><div class="language-scss line-numbers-mode" data-highlighter="prismjs" data-ext="scss"><pre><code><span class="line"><span class="token comment">// _variables.scss</span></span>
+<span class="line"><span class="token property"><span class="token variable">$primary-color</span></span><span class="token punctuation">:</span> #007bff<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// main.scss</span></span>
+<span class="line"><span class="token keyword">@use</span> <span class="token string">&#39;variables&#39;</span> <span class="token module-modifier keyword">as</span> v<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">body </span><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> v.<span class="token variable">$primary-color</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="三、less-介绍与示例" tabindex="-1"><a class="header-anchor" href="#三、less-介绍与示例"><span>三、Less 介绍与示例</span></a></h2><h3 id="_1-变量-variables-1" tabindex="-1"><a class="header-anchor" href="#_1-变量-variables-1"><span><strong>1. 变量（Variables）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token variable">@primary-color<span class="token punctuation">:</span></span> #007bff<span class="token punctuation">;</span></span>
+<span class="line"><span class="token variable">@font-size<span class="token punctuation">:</span></span> 16px<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">body</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">@primary-color</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">@font-size</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-嵌套规则-nesting-rules-1" tabindex="-1"><a class="header-anchor" href="#_2-嵌套规则-nesting-rules-1"><span><strong>2. 嵌套规则（Nesting Rules）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token selector">nav</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token selector">ul</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token selector">a</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span></span>
+<span class="line">      <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span>
+<span class="line">    <span class="token punctuation">}</span></span>
+<span class="line">  <span class="token punctuation">}</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-混合-mixins-1" tabindex="-1"><a class="header-anchor" href="#_3-混合-mixins-1"><span><strong>3. 混合（Mixins）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token selector">.border-radius(<span class="token variable">@radius</span>)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">@radius</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token mixin-usage function">.border-radius</span><span class="token punctuation">(</span>10px<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-函数-functions-1" tabindex="-1"><a class="header-anchor" href="#_4-函数-functions-1"><span><strong>4. 函数（Functions）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token selector">.multiply(<span class="token variable">@value</span>, <span class="token variable">@factor</span>)</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@value</span> <span class="token operator">*</span> <span class="token variable">@factor</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token mixin-usage function">.multiply</span><span class="token punctuation">(</span>50px<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-扩展-继承-extend-inheritance-1" tabindex="-1"><a class="header-anchor" href="#_5-扩展-继承-extend-inheritance-1"><span><strong>5. 扩展/继承（Extend/Inheritance）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token selector">.button-base</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">padding</span><span class="token punctuation">:</span> 10px 20px<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-primary</span> <span class="token punctuation">{</span></span>
+<span class="line">  &amp;<span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>.button<span class="token operator">-</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-secondary</span> <span class="token punctuation">{</span></span>
+<span class="line">  &amp;<span class="token punctuation">:</span><span class="token function">extend</span><span class="token punctuation">(</span>.button<span class="token operator">-</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">background-color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_6-导入路径-import-paths-1" tabindex="-1"><a class="header-anchor" href="#_6-导入路径-import-paths-1"><span><strong>6. 导入路径（Import Paths）</strong></span></a></h3><div class="language-less line-numbers-mode" data-highlighter="prismjs" data-ext="less"><pre><code><span class="line"><span class="token comment">// variables.less</span></span>
+<span class="line"><span class="token variable">@primary-color<span class="token punctuation">:</span></span> #007bff<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">// main.less</span></span>
+<span class="line"><span class="token variable">@import</span> <span class="token string">&quot;variables.less&quot;</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">body</span> <span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">@primary-color</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="四、stylus-介绍与示例" tabindex="-1"><a class="header-anchor" href="#四、stylus-介绍与示例"><span>四、Stylus 介绍与示例</span></a></h2><h3 id="_1-变量-variables-2" tabindex="-1"><a class="header-anchor" href="#_1-变量-variables-2"><span><strong>1. 变量（Variables）</strong></span></a></h3><div class="language-stylus line-numbers-mode" data-highlighter="prismjs" data-ext="styl"><pre><code><span class="line"><span class="token variable-declaration"><span class="token variable">primary-color</span> <span class="token operator">=</span> <span class="token hexcode">#007bff</span></span></span>
+<span class="line"><span class="token variable-declaration"><span class="token variable">font-size</span> <span class="token operator">=</span> <span class="token number">16</span><span class="token unit">px</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">body</span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">color</span> primary-color</span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">font-size</span> font-size</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-嵌套规则-nesting-rules-2" tabindex="-1"><a class="header-anchor" href="#_2-嵌套规则-nesting-rules-2"><span><strong>2. 嵌套规则（Nesting Rules）</strong></span></a></h3><div class="language-stylus line-numbers-mode" data-highlighter="prismjs" data-ext="styl"><pre><code><span class="line"><span class="token selector">nav</span></span>
+<span class="line">  <span class="token selector">ul</span></span>
+<span class="line">    <span class="token property-declaration"><span class="token property">list-style</span> none</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token selector">a</span></span>
+<span class="line">    <span class="token property-declaration"><span class="token property">text-decoration</span> none</span></span>
+<span class="line">    <span class="token selector">&amp;:hover</span></span>
+<span class="line">      <span class="token property-declaration"><span class="token property">color</span> <span class="token color">red</span></span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-混合-mixins-2" tabindex="-1"><a class="header-anchor" href="#_3-混合-mixins-2"><span><strong>3. 混合（Mixins）</strong></span></a></h3><div class="language-stylus line-numbers-mode" data-highlighter="prismjs" data-ext="styl"><pre><code><span class="line"><span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span>radius<span class="token punctuation">)</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">border-radius</span> radius</span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box</span></span>
+<span class="line">  <span class="token func"><span class="token function">border-radius</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">)</span></span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-函数-functions-2" tabindex="-1"><a class="header-anchor" href="#_4-函数-functions-2"><span><strong>4. 函数（Functions）</strong></span></a></h3><div class="language-stylus line-numbers-mode" data-highlighter="prismjs" data-ext="styl"><pre><code><span class="line"><span class="token func"><span class="token function">double</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span></span></span>
+<span class="line">  <span class="token statement"><span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">2</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.box</span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">width</span> <span class="token func"><span class="token function">double</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">)</span></span></span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-扩展-继承-extend-inheritance-2" tabindex="-1"><a class="header-anchor" href="#_5-扩展-继承-extend-inheritance-2"><span><strong>5. 扩展/继承（Extend/Inheritance）</strong></span></a></h3><div class="language-stylus line-numbers-mode" data-highlighter="prismjs" data-ext="styl"><pre><code><span class="line"><span class="token func"><span class="token function">button-base</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">padding</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">border-radius</span> <span class="token number">5</span><span class="token unit">px</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-primary</span></span>
+<span class="line">  <span class="token func"><span class="token function">button-base</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">background-color</span> <span class="token color">blue</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">color</span> <span class="token color">white</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="token selector">.button-secondary</span></span>
+<span class="line">  <span class="token func"><span class="token function">button-base</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">background-color</span> <span class="token color">gray</span></span></span>
+<span class="line">  <span class="token property-declaration"><span class="token property">color</span> <span class="token color">white</span></span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="五、总结-sass-vs-less-vs-stylus" tabindex="-1"><a class="header-anchor" href="#五、总结-sass-vs-less-vs-stylus"><span>五、总结：Sass vs Less vs Stylus</span></a></h2><table><thead><tr><th>功能</th><th>Sass</th><th>Less</th><th>Stylus</th></tr></thead><tbody><tr><td><strong>变量语法</strong></td><td><code>$变量名: 值;</code></td><td><code>@变量名: 值;</code></td><td><code>变量名 = 值</code></td></tr><tr><td><strong>嵌套规则</strong></td><td>支持嵌套，<code>&amp;</code> 引用父级选择器</td><td>支持嵌套，<code>&amp;</code> 引用父级</td><td>支持缩进嵌套，<code>&amp;</code> 引用父级</td></tr><tr><td><strong>混合 (Mixins)</strong></td><td><code>@mixin</code> 定义，<code>@include</code> 使用</td><td>直接定义 <code>.类名()</code>，调用使用</td><td>定义 <code>函数名()</code>，直接调用</td></tr><tr><td><strong>函数 (Functions)</strong></td><td>使用 <code>@function</code> 定义，可执行复杂运算</td><td>使用类似 mixin 的形式定义</td><td>定义函数，直接返回计算结果</td></tr><tr><td><strong>继承 (Extend)</strong></td><td><code>@extend</code> 继承样式</td><td><code>&amp;:extend(.类名)</code></td><td>使用函数复用样式</td></tr><tr><td><strong>导入路径管理</strong></td><td><code>@use</code> 和 <code>@import</code></td><td>仅支持 <code>@import</code></td><td>使用 <code>@import</code> 导入文件</td></tr></tbody></table><h2 id="六、推荐选择" tabindex="-1"><a class="header-anchor" href="#六、推荐选择"><span>六、推荐选择</span></a></h2><ul><li><strong>Sass</strong>：功能丰富，模块化强，适合中大型项目。它与许多前端框架如 Bootstrap 紧密集成。</li><li><strong>Less</strong>：简单直观，上手快，更适合中小型项目。像 Ant Design 就采用了 Less。</li><li><strong>Stylus</strong>：自由度高，语法简洁，更适合追求极简代码的项目。</li></ul><p>根据团队需求和项目规模选择合适的预处理器，可以大幅提升样式开发的效率和可维护性！</p><p>如果需要进一步了解具体的配置或用法，可以参考官方文档：</p><ul><li><a href="https://sass-lang.com/documentation" target="_blank" rel="noopener noreferrer">Sass 官方文档</a></li><li><a href="http://lesscss.org/" target="_blank" rel="noopener noreferrer">Less 官方文档</a></li><li><a href="https://stylus-lang.com/" target="_blank" rel="noopener noreferrer">Stylus 官方文档</a></li></ul></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">Last Updated: </span><!----></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: junezqj@gmail.com">junezqj</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-nxCCozoQ.js" defer></script>
+  </body>
+</html>
