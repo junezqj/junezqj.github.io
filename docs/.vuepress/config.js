@@ -30,9 +30,6 @@ export default {
                     ],
                 },
             ],
-            '/': [ // 主页侧边栏
-                { text: '首页', link: '/' }
-            ],
         }
     }),
     bundler: viteBundler(),
