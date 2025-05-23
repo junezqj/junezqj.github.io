@@ -3,6 +3,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 
 export default {
     theme: defaultTheme({
+        logo: '/images/profile-pic.png',
         sidebar: [
             {
                 text: '首页',
@@ -41,4 +42,5 @@ export default {
     lang: 'zh-CN',
     title: "Bala bala's website",
     description: '这是我的一个技术分享&个人博客网站',
+    head: [['link', { rel: 'icon', href: '/images/profile-pic.png' }]],
 }
