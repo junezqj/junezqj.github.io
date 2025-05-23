@@ -30,7 +30,9 @@ export default {
                     ],
                 },
             ],
-        }
+        },
+        contributors: false,
+        lastUpdated: false,
     }),
     bundler: viteBundler(),
     lang: 'zh-CN',
