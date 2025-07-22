@@ -7,11 +7,9 @@ date: 2025-03-19
 
 ## 基础配置
 ```bash
-# 设置全局用户名
-git config --global user.name "Your Name"
-
-# 设置全局邮箱
-git config --global user.email "email@example.com"
+# 设置全局用户名 || 设置全局邮箱
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱"
 
 # 查看配置列表
 git config --list
@@ -30,8 +28,7 @@ git clone -b <branch> <url>  # 克隆指定分支
 ## 基础工作流
 ```bash
 # 查看当前状态
-git status                 # 查看完整状态
-git status -s              # 精简状态显示
+git status (-s)            # 查看完整状态(-s 为简洁模式)
 
 # 添加文件
 git add <file>             # 添加指定文件
@@ -39,24 +36,19 @@ git add .                  # 添加所有文件
 git add *.js               # 通配符添加
 
 # 提交更改
-git commit -m "commit message"          # 常规提交
-git commit -a -m "commit message"       # 跳过add直接提交已跟踪文件
+git commit (-a) -m "commit message"  # 常规提交(-a 跳过add直接提交已跟踪文件)
 
 # 查看提交历史
-git log                    # 查看提交历史
-git log --oneline          # 单行显示
-git log --graph            # 图形化显示
-git log -p filename.txt    # 查看文件修改历史
+git log (--oneline || --graph)  # 查看提交历史(--oneline 单行显示 --graph 图形化显示)
+git log -p filename.txt         # 查看文件修改历史
 ```
 
 ## 分支管理
 ```bash
 # 分支操作
-git branch                      # 列出本地分支
-git branch -a                   # 列出所有分支（含远程）
+git branch (-a)                 # 列出本地分支(-a 列出所有分支)
 git branch feature/login        # 创建新分支
-git checkout dev                # 切换分支
-git checkout -b hotfix          # 创建并切换分支
+git checkout (-b) dev           # 切换分支(-b 创建并切换分支)
 git branch -d old-branch        # 删除分支
 git branch -m new-name          # 重命名当前分支
 
